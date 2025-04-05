@@ -51,7 +51,7 @@ nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=atta
 nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=attach --enable-plugins=pyqt5 --windows-icon-from-ico=./favicon.ico main.py
 
 
-###本项目遵循GNU GPLv3开源协议
+### 本项目遵循GNU GPLv3开源协议
 
 ## 原作者：@LHGS-github	
 ## 原项目地址：https://github.com/NamePickerOrg/NamePicker
