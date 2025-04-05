@@ -17,23 +17,22 @@
 ![屏幕截图 2025-04-05 151430](https://github.com/user-attachments/assets/b593bc39-b46a-41f0-b654-5c35deb7f1a5)
 ![image](https://github.com/user-attachments/assets/764dc5b2-1668-48ea-be37-50bd5f6e54d0)
 
-5.修改环保模式提示
+5.修改 环保模式 及 程序启动 提示信息
 
 ![屏幕截图 2025-04-05 151419](https://github.com/user-attachments/assets/88aa1054-d3cc-4113-88b8-136c06bef294)
-
-6.修改启动提示信息
-
 ![da91edae21f6d020f64ad6933bde2398](https://github.com/user-attachments/assets/551b9eb4-442b-4675-ba9c-d1c1b7b033e3)
 
 
 
-### 摄像头抽选功能指南：
+### 摄像头抽选功能指南
 
-1.找到luckyrandom所在文件夹，一般在C:\Program Files (x86)\Seewo\MiniApps下面
+原理：替换掉原本的随机抽选，使其直接拉起np，再通过np打开随机抽选
 
-2.将luckyrandom.exe更名为LuckyRandomForCam.exe，其他不变
+1.找到LuckyRandom所在文件夹，一般在C:\Program Files (x86)\Seewo\MiniApps下面
 
-3.把zip解压并把文件拖入同目录下，将main.exe重命名为luckxxxxxxxxx即可
+2.将LuckyXXXXX.exe更名为LuckyRandomForCam.exe，其他不变
+
+3.把zip解压并把文件拖入同目录下，将main.exe重命名为LuckyXXXXX.exe即可
 
 
 ### 如何打包
@@ -52,6 +51,7 @@ nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=atta
 nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=attach --enable-plugins=pyqt5 --windows-icon-from-ico=./favicon.ico main.py
 
 
+###本项目遵循GNU GPLv3开源协议
 
 ## 原作者：@LHGS-github	
 ## 原项目地址：https://github.com/NamePickerOrg/NamePicker
