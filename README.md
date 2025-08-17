@@ -1,59 +1,67 @@
-# NamePickerChanged
-## 基于 NamePicker 二次开发
+# NamePicker v2.2.0 For Shiru
+## 基于 NamePicker v2.2.0d3rel 二次开发
 
 
 ### 修改内容
 
-1.移除浮窗元素，删除任务栏常驻，即开即用，关闭退出
+1.去除悬浮窗元素，删除有关更新的代码；
 
-2.为六代机及以上新设备添加摄像头抽选功能（请注意，没有安装希沃桌面的新设备同样无法抽选，工作原理是调用希沃自带的随机抽选）
+2.新增参数-ban；未带参数运行时直接启动主界面，并在主界面关闭后退出程序；带参数运行时，首次启动后台驻留，再次运行时打开主界面，当主界面关闭时不会退出程序；允许在带参数运行时多开主界面，不允许程序多开运行；
 
-![屏幕截图 2025-04-05 151440](https://github.com/user-attachments/assets/f06e329e-dfd5-478c-802c-402328a71987)
+3.新增api端口，默认在127.0.0.1:32763上开放通信端口，在配置文件中新增ip与端口参数，当接收到通信 kscx4cw 时，自动完成一次抽选，若联动插件已开启，则与cw联动；
 
-3.移去cw开关避免学生乱改，默认配置文件是关闭（可以用记事本编辑，修改"supportCS": false为true即可）
+4.新增 摄像头抽选 左侧栏目，抽选时启动对应路径程序
 
-![屏幕截图 2025-04-05 151446](https://github.com/user-attachments/assets/3e6357d4-5c43-489c-b4f6-21f2e0702f9b)
+5.修改抽选数量逻辑，当抽选数量大于3时，取消与插件联动，并以默认显示方式显示抽选结果；若小于等于3且插件联动已启用，则与插件联动
 
-4.移除非二元抽选，需要可以在第84行附近重新添加即可
+6.新增QuickPicker快捷抽选程序，使用Python语言编写，无GUI配置界面，无后台驻留，无日志文件，实现启动后向点名软件发送特定字符串`[kscx4cw]`，执行完成之后关闭；使用json配置文件，配置文件中包含通信ip以及端口号，可根据需求修改
 
-![屏幕截图 2025-04-05 151430](https://github.com/user-attachments/assets/b593bc39-b46a-41f0-b654-5c35deb7f1a5)
-![image](https://github.com/user-attachments/assets/764dc5b2-1668-48ea-be37-50bd5f6e54d0)
+7.其他主界面显示内容修改
 
-5.修改 环保模式 及 程序启动 提示信息
+<img width="1858" height="1454" alt="image" src="https://github.com/user-attachments/assets/ba85d555-dff5-4718-b44f-2c55841701cb" />
 
-![屏幕截图 2025-04-05 151419](https://github.com/user-attachments/assets/88aa1054-d3cc-4113-88b8-136c06bef294)
-![da91edae21f6d020f64ad6933bde2398](https://github.com/user-attachments/assets/551b9eb4-442b-4675-ba9c-d1c1b7b033e3)
+<img width="1830" height="1434" alt="image" src="https://github.com/user-attachments/assets/df3891ee-9e75-4a68-b0cb-fd2ca3a3669e" />
 
+<img width="1830" height="1429" alt="image" src="https://github.com/user-attachments/assets/201c5094-91f2-42a1-aad9-fedfc2ee6d7f" />
+
+<img width="1834" height="1441" alt="image" src="https://github.com/user-attachments/assets/c57691b7-d591-4a67-a3e4-3bff3e5584d6" />
+
+<img width="1827" height="1429" alt="image" src="https://github.com/user-attachments/assets/6d59f857-b729-4c62-9409-0726620b2248" />
 
 
 ### 摄像头抽选功能指南
 
-**原理：替换掉原本的随机抽选，使其直接拉起np，再通过np打开随机抽选**
+1.在摄像头抽选栏目填写程序路径，LuckyRandom默认在C:\Program Files (x86)\Seewo\MiniApps下，不需要指定参数
 
-1.找到LuckyRandom所在文件夹，一般在C:\Program Files (x86)\Seewo\MiniApps下面
-
-2.将LuckyXXXXX.exe更名为LuckyRandomForCam.exe，其他不变
-
-3.把打包好的所有文件拖入同目录下，将main.exe重命名为LuckyXXXXX.exe即可
+2.如果使用QuickPicker，替换掉机器自带的摄像头随机抽选，则需要将LuckyRandom.exe更名为LuckyRandomForCam.exe，将QuickPicker.exe重命名为LuckyRandom.exe；同时NamePicker摄像头抽选栏目程序路径要注意更换名称
 
 
 ### 如何打包
 
-**请先下载好mingw并添加到指定位置，建议先打包一次看看配置路径及下载地址，否则可能会因为网络环境问题打包失败**
+**请先先去[原项目](https://github.com/NamePickerOrg/NamePicker)下载完整项目；下载完成后，将本分支内容下载并替换掉原来的main.py以及pages文件夹中的内容**
 
-**建议先去[原项目](https://github.com/NamePickerOrg/NamePicker)下载assets文件夹避免出现图片图标加载错误**
+1.(可选)创建虚拟环境，建议使用[conda](https://anaconda.org/anaconda/conda)创建虚拟环境
 
-**请先阅读原项目打包教程创建虚拟环境，如果自带的venv环境有问题，建议使用[conda](https://anaconda.org/anaconda/conda)创建虚拟环境**
+2. 安装依赖项
 
-不带ico图标指令：
+pip install -r requirements.txt
 
-nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=attach --enable-plugins=pyqt5 main.py
+3. 在虚拟环境中运行
 
-带ico图标指令，请将图标拖到同目录下：
+pyinstaller main.spec
 
-nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=attach --enable-plugins=pyqt5 --windows-icon-from-ico=./favicon.ico main.py
 
-不想打包？打包失败？试试直接[下载](https://www.123684.com/s/bsq9jv-5IzaH)
+###已知问题：bug一堆
+
+本人代码水平较差，不知道怎么解决，欢迎大佬提意见或自行修改
+
+1.内存占用比较高，对于仅有8G的"希沃大板砖"非常不友好
+
+2.性别和学号偏好抽选无效
+
+3.日志变成垃圾堆(懒得管了只要不是太多就死不了)
+
+4.带不带参数都无法正常在关闭主窗口的时候退出程序，托盘菜单时有时无，导致程序直接变成允许多开(没啥头绪，上课别崩就行)
 
 
 ### 本项目遵循GNU GPLv3开源协议
