@@ -55,6 +55,11 @@ nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=atta
 nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=attach --enable-plugins=pyqt5 --windows-icon-from-ico=./favicon.ico main.py
 
 
+### 已知问题
+
+没法启动摄像头抽选(LuckyRandom)
+
+
 ### 本项目遵循GNU GPLv3开源协议
 
 ### NamePicker官方[QQ群](https://qm.qq.com/q/fTjhKuAlCU)
