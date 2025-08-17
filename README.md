@@ -1,5 +1,6 @@
 # NamePickerChanged
 ## 基于 NamePicker 二次开发
+## v2.2.0 For Shiru现已发布，[点击查看](https://github.com/MillerNycar/NamePickerChanged/tree/2.2.0)
 
 
 ### 修改内容
@@ -52,8 +53,6 @@ nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=atta
 带ico图标指令，请将图标拖到同目录下：
 
 nuitka --standalone --include-data-dir=assets=assets --windows-console-mode=attach --enable-plugins=pyqt5 --windows-icon-from-ico=./favicon.ico main.py
-
-不想打包？打包失败？试试直接[下载](https://www.123684.com/s/bsq9jv-5IzaH)
 
 
 ### 本项目遵循GNU GPLv3开源协议
