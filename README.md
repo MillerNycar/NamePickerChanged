@@ -43,15 +43,13 @@
 1.(可选)创建虚拟环境，建议使用[conda](https://anaconda.org/anaconda/conda)创建虚拟环境
 
 2. 安装依赖项
-
 pip install -r requirements.txt
 
 3. 在虚拟环境中运行
-
 pyinstaller main.spec
 
 
-###已知问题：bug一堆
+### 已知问题：bug一堆
 
 本人代码水平较差，不知道怎么解决，欢迎大佬提意见或自行修改
 
