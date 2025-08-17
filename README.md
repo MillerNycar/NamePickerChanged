@@ -1,5 +1,6 @@
 # NamePicker v2.2.0 For Shiru
 ## 基于 NamePicker v2.2.0d3rel 二次开发
+## 本人已上高三没时间再开发，这大概率是最后一版NamePickerChanged了，本项目后续可能不再更新(至少高三这一年)，喜欢就拿走吧！
 
 
 ### 修改内容
@@ -10,13 +11,13 @@
 
 3.新增api端口，默认在127.0.0.1:32763上开放通信端口，在配置文件中新增ip与端口参数，当接收到通信 kscx4cw 时，自动完成一次抽选，若联动插件已开启，则与cw联动；
 
-4.新增 摄像头抽选 左侧栏目，抽选时启动对应路径程序
+4.新增 摄像头抽选 左侧栏目，抽选时启动对应路径程序；
 
-5.修改抽选数量逻辑，当抽选数量大于3时，取消与插件联动，并以默认显示方式显示抽选结果；若小于等于3且插件联动已启用，则与插件联动
+5.修改抽选数量逻辑，当抽选数量大于3时，取消与插件联动，并以默认显示方式显示抽选结果；若小于等于3且插件联动已启用，则与插件联动；
 
-6.新增QuickPicker快捷抽选程序，使用Python语言编写，无GUI配置界面，无后台驻留，无日志文件，实现启动后向点名软件发送特定字符串`[kscx4cw]`，执行完成之后关闭；使用json配置文件，配置文件中包含通信ip以及端口号，可根据需求修改
+6.新增QuickPicker快捷抽选程序，使用Python语言编写，无GUI配置界面，无后台驻留，无日志文件，实现启动后向点名软件发送特定字符串 kscx4cw ，执行完成之后关闭；使用json配置文件，配置文件中包含通信ip以及端口号，可根据需求修改；
 
-7.其他主界面显示内容修改
+7.其他主界面显示内容修改.
 
 <img width="1858" height="1454" alt="image" src="https://github.com/user-attachments/assets/ba85d555-dff5-4718-b44f-2c55841701cb" />
 
@@ -29,37 +30,43 @@
 <img width="1827" height="1429" alt="image" src="https://github.com/user-attachments/assets/6d59f857-b729-4c62-9409-0726620b2248" />
 
 
-### 摄像头抽选功能指南
+### 摄像头抽选功能
 
-1.在摄像头抽选栏目填写程序路径，LuckyRandom默认在C:\Program Files (x86)\Seewo\MiniApps下，不需要指定参数
+在摄像头抽选栏目填写程序路径，LuckyRandom默认在C:\Program Files (x86)\Seewo\MiniApps下，不需要指定参数，当然也可以启动其他程序.
 
-2.如果使用QuickPicker，替换掉机器自带的摄像头随机抽选，则需要将LuckyRandom.exe更名为LuckyRandomForCam.exe，将QuickPicker.exe重命名为LuckyRandom.exe；同时NamePicker摄像头抽选栏目程序路径要注意更换名称
+
+### QuickPicker
+
+如要使用QuickPicker，替换掉机器自带的摄像头随机抽选，则需要将LuckyRandom.exe更名为LuckyRandomForCam.exe，将QuickPicker.exe重命名为LuckyRandom.exe；同时NamePicker摄像头抽选栏目程序路径要注意更换名称.
+
+注意：要把NamePicker设置为开机自启动，带参数-ban，实现后台启动而不打开主界面；如果np没启动，QuickPicker是无法实现抽选的.
 
 
 ### 如何打包
 
 **请先先去[原项目](https://github.com/NamePickerOrg/NamePicker)下载完整项目；下载完成后，将本分支内容下载并替换掉原来的main.py以及pages文件夹中的内容**
 
-1.(可选)创建虚拟环境，建议使用[conda](https://anaconda.org/anaconda/conda)创建虚拟环境
 
-2. 安装依赖项
+1.(可选)创建虚拟环境，建议使用[conda](https://anaconda.org/anaconda/conda)创建虚拟环境.
+
+2. 安装依赖项.
 pip install -r requirements.txt
 
-3. 在虚拟环境中运行
+3. 在虚拟环境中运行.
 pyinstaller main.spec
 
 
 ### 已知问题：bug一堆
 
-本人代码水平较差，不知道怎么解决，欢迎大佬提意见或自行修改
+本人代码水平较差，不知道怎么解决，欢迎大佬提意见或自行修改.
 
-1.内存占用比较高，对于仅有8G的"希沃大板砖"非常不友好
+1.内存占用比较高，对于仅有8G的"希沃大板砖"非常不友好；
 
-2.性别和学号偏好抽选无效
+2.性别和学号偏好抽选无效；
 
-3.日志变成垃圾堆(懒得管了只要不是太多就死不了)
+3.日志变成垃圾堆(懒得管了只要不是太多就死不了)；
 
-4.带不带参数都无法正常在关闭主窗口的时候退出程序，托盘菜单时有时无，导致程序直接变成允许多开(没啥头绪，上课别崩就行)
+4.带不带参数都无法正常在关闭主窗口的时候退出程序，托盘菜单时有时无，导致程序直接变成允许多开(没啥头绪，上课别崩就行).
 
 
 ### 本项目遵循GNU GPLv3开源协议
