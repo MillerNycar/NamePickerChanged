@@ -22,7 +22,7 @@
 
 <img width="1858" height="1454" alt="image" src="https://github.com/user-attachments/assets/ba85d555-dff5-4718-b44f-2c55841701cb" />
 
-<img width="1830" height="1434" alt="image" src="https://github.com/user-attachments/assets/df3891ee-9e75-4a68-b0cb-fd2ca3a3669e" />
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/5d8f5f41-a44a-429c-ad83-df40b441bee0" />
 
 <img width="1830" height="1429" alt="image" src="https://github.com/user-attachments/assets/201c5094-91f2-42a1-aad9-fedfc2ee6d7f" />
 
@@ -33,7 +33,7 @@
 
 ### 摄像头抽选功能
 
-在摄像头抽选栏目填写程序路径，LuckyRandom默认在C:\Program Files (x86)\Seewo\MiniApps下，不需要指定参数，当然也可以启动其他程序.
+在摄像头抽选栏目填写程序路径，LuckyRandom默认在C:\Program Files (x86)\Seewo\SEEWO-FAMILY-BUCKET\MiniApps下，不需要指定参数，当然也可以启动其他程序.
 
 
 ### QuickPicker
@@ -65,7 +65,7 @@ pyinstaller main.spec
 
 1.内存占用比较高，对于仅有8G的"希沃大板砖"非常不友好；
 
-~~2.性别和学号偏好抽选无效；~~
+2.性别和学号偏好抽选无效（不是哥们，原版也有这个问题，我硬是改了5次都还是不行，实在是没办法了）；
 
 ~~3.日志变成垃圾堆(懒得管了只要不是太多就死不了)；~~
 
