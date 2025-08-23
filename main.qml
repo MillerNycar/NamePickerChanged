@@ -36,44 +36,9 @@ FluentWindow {
             icon: "ic_fluent_info_20_regular",
         }
     ]
-    // Platform.SystemTrayIcon {
-    //     id: trayIcon
-    //     visible: true
-    //     icon.source: Qt.resolvedUrl("../assets/NamePicker.png")
-    //     tooltip: qsTr("NamePicker")
-    //     menu: Platform.Menu {
-    //         Platform.MenuItem {
-    //             text: qsTr("显示主窗口")
-    //             onTriggered: {
-    //                 window.show()
-    //                 window.raise()
-    //             }
-    //         }
-    //         Platform.MenuItem {
-    //             text: qsTr("隐藏主窗口")
-    //             onTriggered: {
-    //                 window.hide()
-    //             }
-    //         }
-    //         Platform.MenuSeparator {}
-    //         Platform.MenuItem {
-    //             text: qsTr("退出")
-    //             onTriggered: Qt.quit()
-    //         }
-    //     }
-    //     onActivated: {
-    //         if (window.visible) {
-    //             window.hide()
-    //         } else {
-    //             window.show()
-    //             window.raise()
-    //         }
-    //     }
-    // }
-    onClosing: {
-        if (Qt.platform.os === "windows" || Qt.platform.os === "linux") {
-            close.accepted = false
-            window.hide()
-        }
+
+    // 设置关闭窗口时退出程序
+    onClosing: function(close) {
+        close.accepted = true
     }
 }

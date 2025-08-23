@@ -63,7 +63,7 @@ FluentPage {
         // 使用说明
         SettingCard {
             width: parent.width
-            title: qsTr("发布信息")
+            title: qsTr("发布者信息")
             icon: "ic_fluent_info_sparkle_20_regular"
 
             ColumnLayout {
@@ -101,7 +101,7 @@ FluentPage {
                 Text {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    text: "视源股份 版权所有 © 2025"
+                    text: "视源股份 CVTE 版权所有 © 2025"
                     font.pixelSize: 14
                 }
 
@@ -130,7 +130,6 @@ FluentPage {
     // 处理摄像头启动结果
     Connections {
         target: Bridge
-
         function onCameraResult(success, message) {
             if (success) {
                 floatLayer.createInfoBar({

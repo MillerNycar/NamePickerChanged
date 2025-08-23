@@ -90,7 +90,7 @@ FluentPage {
                 model: ["全部抽选", "只抽单数", "只抽双数"]
                 currentIndex: 0
                 placeholderText: qsTr("选择学号偏好")
-                onCurrentIndexChanged: {
+                onCurrentTextChanged: {
                     Bridge.setNumFavor(numCombo.currentText)
                 }
             }
@@ -108,7 +108,7 @@ FluentPage {
                 model: Bridge.getNameList()
                 currentIndex: 0
                 placeholderText: qsTr("选择抽选名单")
-                onCurrentIndexChanged: {
+                onCurrentTextChanged: {
                     Bridge.changeNameList(currentIndex)
                 }
             }
