@@ -2,7 +2,7 @@
 ## 基于 NamePicker v2.2.0d4rel 二次开发
 ## 本人已上高三没时间再开发，这大概率是最后一版NamePickerChanged了，本项目大概率不再更新(至少高三这一年)，喜欢就拿走吧！
 
-## 由于此版本代码量过大，不适合作为后台API服务，且上一次修改后存在未知或者奇奇怪怪的问题，所以API服务改用一点1.1.0的版本来开发，请 点击访问[https://github.com/MillerNycar/NamePickerChanged/tree/1.1.0]
+## 由于此版本代码量过大，不适合作为后台API服务，且上一次修改后存在未知或者奇奇怪怪的问题，所以API服务改用一点1.1.0的版本来开发，请[点击访问](https://github.com/MillerNycar/NamePickerChanged/tree/1.1.0)
 
 ### 修改内容
 
