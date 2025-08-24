@@ -60,6 +60,22 @@ def resource_path(relative_path:str)-> str:
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.abspath(relative_path)
 
+def get_writable_temp_dir():
+    temp_dir = tempfile.gettempdir()
+    try:
+        test_file = os.path.join(temp_dir, 'test_write.tmp')
+        with open(test_file, 'w') as f:
+            f.write('test')
+        os.remove(test_file)
+        return temp_dir
+    except (IOError, OSError):
+        # 如果没有写入权限，使用当前目录
+        return os.path.abspath('.')
+
+# 使用可写的临时目录
+temp_dir = get_writable_temp_dir()
+logger.info(f"使用临时目录: {temp_dir}")
+
 # NamePicker核心
 class Choose:
     def __init__(self,path:str):
@@ -71,6 +87,7 @@ class Choose:
         self.sexFavor = SEXFAVOR_ALL
         self.numFavor = NUMFAVOR_BOTH
         self.load_names(path)
+        self.load_favor()
 
     def load_names(self,path:str) -> None:
         try:
@@ -87,6 +104,7 @@ class Choose:
                     struct[head[j]] = l[j]
                 self.names.append(struct)
                 self.namel.append(i)
+            self.load_favor()
         except (UnicodeDecodeError,IndexError):
             logger.warning("名单文件无效")
             os.remove(path)
@@ -104,8 +122,10 @@ class Choose:
     def load_favor(self) -> None:
         logger.debug("loadFavor")
         self.namel = []
-    
+
+            
         for i in range(len(self.names)):
+                
             sex_ok = (self.sexFavor == SEXFAVOR_ALL) or (int(self.names[i]["sex"]) == self.sexFavor)
 
             num_ok = (self.numFavor == NUMFAVOR_BOTH) or \
@@ -313,6 +333,8 @@ class Bridge(QObject):
                     re.append(f"{i['name']}({i['no']})")
                 with open(f"{temp_dir}/res.txt","w",encoding="utf-8") as f:
                     f.write(",".join(re))
+                with open(f"{temp_dir}/unread","w") as f:
+                    f.write("1")
             else:
                 for i in r:
                     re.append(f"{i['name']}({i['no']})")

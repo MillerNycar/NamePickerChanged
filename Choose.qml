@@ -5,34 +5,35 @@ import RinUI
 
 FluentPage {
     width: parent.width
-    Column{
+    Column {
         Layout.fillWidth: true
-        Layout.alignment: parent.left
+        Layout.alignment: Qt.AlignLeft
         width: parent.width
         spacing: 10
-        ListView{
+
+        ListView {
             id: nameList
             textRole: "name"
             width: parent.width
             height: 370
-            model:ListModel {
+            model: ListModel {
                 id: studentsModel
-                ListElement { name: qsTr("别紧张...")}
+                ListElement { name: qsTr("别紧张...") }
             }
         }
-        Button{
+
+        Button {
             width: parent.width
             highlighted: true
             text: qsTr("点击抽选")
             onClicked: {
                 var pk = Bridge.Pick(chooseNum.value)
-                if(pk[0]!="bydcnm"){
+                if (pk[0] != "bydcnm") {
                     studentsModel.clear()
-                    for(var i = 0; i < pk.length; i++){
-                        studentsModel.append({name: pk[i]})
+                    for (var i = 0; i < pk.length; i++) {
+                        studentsModel.append({ name: pk[i] })
                     }
-                }
-                else{
+                } else {
                     floatLayer.createInfoBar({
                         severity: Severity.Error,
                         title: qsTr("Error"),
@@ -41,49 +42,58 @@ FluentPage {
                 }
             }
         }
-        RowLayout{
+
+        RowLayout {
             Layout.fillWidth: true
-            Layout.alignment: parent.left
+            Layout.alignment: Qt.AlignLeft
             width: parent.width
-            Text{
-                typography:Typography.Body
+
+            Text {
+                typography: Typography.Body
                 text: qsTr("抽选数量")
             }
+
             SpinBox {
                 id: chooseNum
                 width: parent.width
                 Layout.alignment: Qt.AlignRight
                 validator: IntValidator
                 from: 1
-                to: 40
+                to: Bridge.GetNLen() > 0 ? Bridge.GetNLen() : 40
             }
         }
-        RowLayout{
+
+        RowLayout {
             Layout.fillWidth: true
             width: parent.width
-            Text{
-                typography:Typography.Body
+
+            Text {
+                typography: Typography.Body
                 text: qsTr("选择性别偏好")
             }
+
             ComboBox {
                 id: sexCombo
                 Layout.alignment: Qt.AlignRight
                 model: ["全部抽选", "只抽男生", "只抽女生"]
                 currentIndex: 0
                 placeholderText: qsTr("选择性别偏好")
-                onCurrentIndexChanged: {
-                    Bridge.setSexFavor(sexCombo.currentText)
+                onCurrentTextChanged: {
+                    Bridge.setSexFavor(currentText)
                 }
             }
         }
-        RowLayout{
+
+        RowLayout {
             Layout.fillWidth: true
-            Layout.alignment: parent.left
+            Layout.alignment: Qt.AlignLeft
             width: parent.width
-            Text{
-                typography:Typography.Body
+
+            Text {
+                typography: Typography.Body
                 text: qsTr("选择学号偏好")
             }
+
             ComboBox {
                 id: numCombo
                 Layout.alignment: Qt.AlignRight
@@ -91,17 +101,20 @@ FluentPage {
                 currentIndex: 0
                 placeholderText: qsTr("选择学号偏好")
                 onCurrentTextChanged: {
-                    Bridge.setNumFavor(numCombo.currentText)
+                    Bridge.setNumFavor(currentText)
                 }
             }
         }
-        RowLayout{
+
+        RowLayout {
             Layout.fillWidth: true
             width: parent.width
-            Text{
-                typography:Typography.Body
+
+            Text {
+                typography: Typography.Body
                 text: qsTr("选择抽选名单")
             }
+
             ComboBox {
                 id: nameCombo
                 Layout.alignment: Qt.AlignRight
