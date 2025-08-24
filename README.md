@@ -18,18 +18,19 @@
 
 6.新增QuickPicker快捷抽选程序，使用Python语言编写，无GUI配置界面，无后台驻留，无日志文件，实现启动后向点名软件发送特定字符串 kscx4cw ，执行完成之后关闭；使用json配置文件，配置文件中包含通信ip以及端口号，可根据需求修改；
 
-7.其他主界面显示内容修改.
+7.其他主界面显示内容修改（关闭了关于界面中的跳转跳转链接，防手贱，可以自己在qml中改回来）.
 
-<img width="1858" height="1454" alt="image" src="https://github.com/user-attachments/assets/ba85d555-dff5-4718-b44f-2c55841701cb" />
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/5355453d-13a3-4ed5-8022-fda2b4c73c32" />
 
-<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/5d8f5f41-a44a-429c-ad83-df40b441bee0" />
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/d8bde6e8-35c9-429a-b1f5-4889c46dea8c" />
 
-<img width="1830" height="1429" alt="image" src="https://github.com/user-attachments/assets/201c5094-91f2-42a1-aad9-fedfc2ee6d7f" />
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/27fd4772-5c18-4761-846d-85c416efa0b9" />
 
-<img width="1834" height="1441" alt="image" src="https://github.com/user-attachments/assets/c57691b7-d591-4a67-a3e4-3bff3e5584d6" />
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/919d4106-9802-436d-b526-45d66fecf40e" />
 
-<img width="1827" height="1429" alt="image" src="https://github.com/user-attachments/assets/6d59f857-b729-4c62-9409-0726620b2248" />
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/0995ccaa-44a0-4f2c-95e5-a08e4e6b7a92" />
 
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/c6b01a5f-395f-4176-8744-914f4ad703c3" />
 
 ### 摄像头抽选功能
 
@@ -59,13 +60,13 @@ pip install -r requirements.txt
 pyinstaller main.spec
 
 
-### 已知问题：bug一堆
+### 已知问题
 
 本人代码水平较差，不知道怎么解决，欢迎大佬提意见或自行修改.
 
 1.内存占用比较高，对于仅有8G的"希沃大板砖"非常不友好；
 
-~~2.性别和学号偏好抽选无效（不是哥们，原版也有这个问题，我硬是改了5次都还是不行，实在是没办法了）~~ 终于修复了，******[做个文明的开发者]
+~~2.性别和学号偏好抽选无效（不是哥们，原版也有这个问题，我硬是改了5次都还是不行，实在是没办法了）~~ [终于修复了，******{做个文明的开发者}]
 
 ~~3.日志变成垃圾堆(懒得管了只要不是太多就死不了)；~~
 
